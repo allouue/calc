@@ -17,13 +17,15 @@ class SplashScreen(QDialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.show()
+        self.number = 0
 
-        #---ДАТАБАЗА---#
-        connection = sqlite3.connect('my_database.db')
-        cursor = connection.cursor()
 
-        #создаем таблицы
-        cursor.executescript('''
+        # ---ДАТАБАЗА---#
+        self.connection = sqlite3.connect('./db/my_database.db')
+        self.cursor = self.connection.cursor()
+
+        # ---СОЗДАНИЕ ТАБЛИЦ---#
+        self.cursor.executescript('''
         CREATE TABLE IF NOT EXISTS Users 
         (id INTEGER PRIMARY KEY AUTOINCREMENT,
         login TEXT NOT NULL,
@@ -38,6 +40,7 @@ class SplashScreen(QDialog):
         CREATE TABLE IF NOT EXISTS Products 
         (id INTEGER PRIMARY KEY AUTOINCREMENT,
         food_name TEXT NOT NULL,
+        category TEXT NOT NULL,
         calories INTEGER,
         protein INTEGER,
         fat INTEGER,
@@ -45,14 +48,8 @@ class SplashScreen(QDialog):
         user_id INTEGER,
         FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE);
         ''')
-        connection.commit()
-        # connection.close()
+        self.connection.commit()
 
-        #убираем стандартное окно виндовс ПОКА НЕ РАБОТАЕ)
-        # try:
-        #     self.setWindowFlag(Qt.FramelessWindowHint)
-        # except Exception as e:
-        #     raise e
 
         # ---КНОПКИ ВЫБОРА В ГЛАВНОМ МЕНЮ---#
         self.ui.mainButton.clicked.connect(self.showMain)
@@ -62,23 +59,22 @@ class SplashScreen(QDialog):
         self.ui.resultButton.clicked.connect(self.showResult)
         # self.ui.aboutButton.clicked.connect(self.showAbout)
 
-        #---КНОПКИ ДОБАВЛЕНИЯ ЕДЫ---#
+        # ---КНОПКИ ДОБАВЛЕНИЯ ЕДЫ---#
         self.ui.meal_breakButton.clicked.connect(self.showMealBreakPage)
         self.ui.meal_dinnerButton.clicked.connect(self.showMealDinnerPage)
         self.ui.meal_emealButton.clicked.connect(self.showMealEmealPage)
         self.ui.meal_snackButton.clicked.connect(self.showMealSnackPage)
         #кнопки для отображения окна добавления еды
         self.ui.meal_addBreakButton.clicked.connect(self.showAdd)
-        # self.ui.meal_addDinnerButton.clicked.connect(self.showAddDinner)
+        self.ui.meal_addDinnerButton.clicked.connect(self.showAdd)
+        self.ui.meal_addEmealButton.clicked.connect(self.showAdd)
+        self.ui.meal_addSnackButton.clicked.connect(self.showAdd)
 
-        # self.ui.meal_addEmealButton.clicked.connect(self.showAddEmeal) #пока что коммент из-за тестирования костыля
-        # self.ui.meal_addSnackButton.clicked.connect(self.showAddSnack)
 
-        #кнопка добавления пищи в базу
-        self.ui.add_addMealButton.clicked.connect(self.addBreak)
-        # self.ui.add_addDinnerButton.clicked.connect(self.addDinner)
+        # ---КНОПКА ДОБАВЛЕНИЯ В БД---#
+        self.ui.add_addMealButton.clicked.connect(self.addMeal)
 
-    #меняет окна по нажатию кнопок
+    # ---ИЗМЕНЕНИЕ СТРАНИЦ---#
     def showMain(self):
         self.ui.stackedWidgetMain.setCurrentWidget(self.ui.mainPage)
     def showMeal(self):
@@ -90,38 +86,7 @@ class SplashScreen(QDialog):
     def showResult(self):
         self.ui.stackedWidgetMain.setCurrentWidget(self.ui.resultPage)
 
-    # добавление еды в базу
-    #!!!ВАРИАНТ БЕЗ КОСТЫЛЕЙ(НЕ РАБОТАЕТ)!!!
-    # def addMeal(self):
-    #     self.ui.stackedWidgetMain.setCurrentWidget(self.ui.mealPage)
-    #     calories = self.ui.add_calorieLine_.text()
-
-    def addBreak(self):
-        self.ui.stackedWidgetMain.setCurrentWidget(self.ui.mealPage)
-        # calories = self.ui.add_calorieLineBreak.text()
-        # print("завтрак калории "+calories)
-
-    # def addDinner(self):
-    #     self.ui.stackedWidgetMain.setCurrentWidget(self.ui.mealPage)
-    #     calories = self.ui.add_calorieLineDinner.text()
-    #     print("обед калории "+calories)
-
-
-    #выводит одинаковое окно для разных кнопок
-    def showAdd(self):
-        self.ui.stackedWidgetMain.setCurrentWidget(self.ui.addPage)
-    # def showAddDinner(self):
-    #     self.ui.stackedWidgetMain.setCurrentWidget(self.ui.addPageDinner)
-
-    # def showAddEmeal(self):
-    #     self.ui.stackedWidgetMain.setCurrentWidget(self.ui.addPage)
-    #
-    # def showAddSnack(self):
-    #     self.ui.stackedWidgetMain.setCurrentWidget(self.ui.addPage)
-
-
-
-    #изменение окон для вкладки "приемы пищи"
+    # Изменение страниц внутри страницы mealPage
     def showMealBreakPage(self):
         self.ui.stackedWidgetMeal.setCurrentWidget(self.ui.meal_breakPage)
     def showMealDinnerPage(self):
@@ -131,9 +96,47 @@ class SplashScreen(QDialog):
     def showMealSnackPage(self):
         self.ui.stackedWidgetMeal.setCurrentWidget(self.ui.meal_snackPage)
 
+    # ---ДОБАВЛЕНИЕ В БАЗУ---#
+    def addMeal(self):
+        category = 0    # категория, которая задается в showAdd
+        if self.number == 1:
+            category = "Завтрак"
+        elif self.number == 2:
+            category = "Обед"
+        elif self.number == 3:
+            category = "Ужин"
+        elif self.number == 4:
+            category = "Перекус"
+
+            # Добавляем в БД
+            self.cursor.execute("""
+                   INSERT INTO Products (food_name, category, calories, protein, fat, carbohydrates) VALUES ((?), (?), (?), (?), (?), (?))
+                   """,
+        (self.ui.lineEdit.text(),
+                  int(self.ui.add_calorieLine_.text()),
+                  int(self.ui.add_proteinLine_.text()),
+                  int(self.ui.add_chLine_.text()),
+                  int(self.ui.add_chLine_.text()),
+                  int(self.ui.add_fatLine_.text())))
+            self.connection.commit()
+        # Переход на страницу mealPage
+        self.ui.stackedWidgetMain.setCurrentWidget(self.ui.mealPage)
+
+    # ---ОПРЕДЕЛЕНИЕ КАКОЙ ПЛЮСИК БЫЛ НАЖАТ---#
+    def showAdd(self):
+        self.ui.stackedWidgetMain.setCurrentWidget(self.ui.addPage)
+        sender = self.sender()
+        if sender.objectName() == "meal_addBreakButton":
+            self.number = 1
+        if sender.objectName() == "meal_addDinnerButton":
+            self.number = 2
+        if sender.objectName() == "meal_addEmealButton":
+            self.number = 3
+        if sender.objectName() == "meal_addSnackButton":
+            self.number = 4
 
 
-    #метод для определения числа прогресса
+    # ---ПРОГРЕССБАР---#
     def progressBarValue(self, value):
 
         #стиль прогрессбара с указанием остановок
