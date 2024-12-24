@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>Main</class>
+ <widget class="QDialog" name="Main">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -94,22 +94,6 @@ border-radius: 15px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="historyButton">
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
- 	 height: 30px;
- 	 box-sizing: border-box;
-	 background-color: rgb(212, 212, 255);
- 	 border-radius: 5px;
-	font-weight: bold;
-}</string>
-           </property>
-           <property name="text">
-            <string>История</string>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QPushButton" name="resultButton">
            <property name="styleSheet">
             <string notr="true">QPushButton{
@@ -137,6 +121,22 @@ border-radius: 15px;</string>
             </size>
            </property>
           </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="switchAccount">
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+ 	 height: 30px;
+ 	 box-sizing: border-box;
+	 background-color: rgb(212, 212, 255);
+ 	 border-radius: 5px;
+	font-weight: bold;
+}</string>
+           </property>
+           <property name="text">
+            <string>Сменить аккаунт</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QPushButton" name="aboutButton">
@@ -173,7 +173,7 @@ border-radius: 15px;</string>
             <string/>
            </property>
            <property name="currentIndex">
-            <number>4</number>
+            <number>3</number>
            </property>
            <widget class="QWidget" name="mealPage">
             <layout class="QHBoxLayout" name="horizontalLayout_25">
@@ -268,7 +268,7 @@ background-color: rgb(212, 212, 255);
                         </property>
                         <property name="icon">
                          <iconset resource="resources.qrc">
-                          <normaloff>:/icon/icons/add.png</normaloff>:/icon/icons/add.png</iconset>
+                          <normaloff>:/icon/img/add.png</normaloff>:/icon/img/add.png</iconset>
                         </property>
                         <property name="iconSize">
                          <size>
@@ -292,7 +292,7 @@ background-color: rgb(212, 212, 255);
                         </property>
                         <property name="icon">
                          <iconset resource="resources.qrc">
-                          <normaloff>:/icon/icons/add.png</normaloff>:/icon/icons/add.png</iconset>
+                          <normaloff>:/icon/img/add.png</normaloff>:/icon/img/add.png</iconset>
                         </property>
                         <property name="iconSize">
                          <size>
@@ -332,7 +332,7 @@ background-color: rgb(212, 212, 255);
                         </property>
                         <property name="icon">
                          <iconset resource="resources.qrc">
-                          <normaloff>:/icon/icons/add.png</normaloff>:/icon/icons/add.png</iconset>
+                          <normaloff>:/icon/img/add.png</normaloff>:/icon/img/add.png</iconset>
                         </property>
                         <property name="iconSize">
                          <size>
@@ -372,7 +372,7 @@ background-color: rgb(212, 212, 255);
                         </property>
                         <property name="icon">
                          <iconset resource="resources.qrc">
-                          <normaloff>:/icon/icons/add.png</normaloff>:/icon/icons/add.png</iconset>
+                          <normaloff>:/icon/img/add.png</normaloff>:/icon/img/add.png</iconset>
                         </property>
                         <property name="iconSize">
                          <size>
@@ -421,42 +421,57 @@ background-color: rgb(212, 212, 255);
                         <item>
                          <layout class="QVBoxLayout" name="verticalLayout_72">
                           <item>
-                           <widget class="QLabel" name="label_59">
+                           <widget class="QLabel" name="label">
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Завтрак&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_60">
+                           <widget class="QLabel" name="breakName">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Название завтрака&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Введите завтрак&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_62">
+                           <widget class="QLabel" name="breakCalories">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;калории&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_63">
+                           <widget class="QLabel" name="breakProtein">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;белки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_64">
+                           <widget class="QLabel" name="breakFat">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;жиры&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_65">
+                           <widget class="QLabel" name="breakCarbo">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;углеводы&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
@@ -471,42 +486,57 @@ background-color: rgb(212, 212, 255);
                         <item>
                          <layout class="QVBoxLayout" name="verticalLayout_40">
                           <item>
-                           <widget class="QLabel" name="label_66">
+                           <widget class="QLabel" name="label_3">
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Обед&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_67">
+                           <widget class="QLabel" name="dinnerName">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Название обеда&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Введите обед&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_68">
+                           <widget class="QLabel" name="dinnerCalories">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;калории&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_69">
+                           <widget class="QLabel" name="dinnerProtein">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;белки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_70">
+                           <widget class="QLabel" name="dinnerFat">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;жиры&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_71">
+                           <widget class="QLabel" name="dinnerCarbo">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;углеводы&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
@@ -521,42 +551,57 @@ background-color: rgb(212, 212, 255);
                         <item>
                          <layout class="QVBoxLayout" name="verticalLayout_42">
                           <item>
-                           <widget class="QLabel" name="label_72">
+                           <widget class="QLabel" name="label_4">
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Ужин&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_73">
+                           <widget class="QLabel" name="emealName">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Название ужина&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Введите ужин&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_74">
+                           <widget class="QLabel" name="emealCalories">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;калории&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_75">
+                           <widget class="QLabel" name="emealProtein">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;белки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_76">
+                           <widget class="QLabel" name="emealFat">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;жиры&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_77">
+                           <widget class="QLabel" name="emealCarbo">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;углеводы&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
@@ -571,42 +616,57 @@ background-color: rgb(212, 212, 255);
                         <item>
                          <layout class="QVBoxLayout" name="verticalLayout_43">
                           <item>
-                           <widget class="QLabel" name="label_78">
+                           <widget class="QLabel" name="label_5">
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Перекус&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_79">
+                           <widget class="QLabel" name="snackName">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Название перекуса&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Введите перекус&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_80">
+                           <widget class="QLabel" name="snackCalories">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;калории&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                             <string>0 калории</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_81">
+                           <widget class="QLabel" name="snackProtein">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;белки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_82">
+                           <widget class="QLabel" name="snackFat">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;жиры&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_83">
+                           <widget class="QLabel" name="snackCarbo">
+                            <property name="styleSheet">
+                             <string notr="true"> font-size:18pt;</string>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0 &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;углеводы&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
@@ -798,311 +858,6 @@ background-color: rgb(212, 212, 255);
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="historyPage">
-            <layout class="QHBoxLayout" name="horizontalLayout_32">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_50" stretch="0,1">
-               <property name="sizeConstraint">
-                <enum>QLayout::SetNoConstraint</enum>
-               </property>
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_51">
-                 <property name="sizeConstraint">
-                  <enum>QLayout::SetMinimumSize</enum>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_88">
-                   <property name="font">
-                    <font>
-                     <pointsize>23</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>История</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_52" stretch="0">
-                 <item>
-                  <widget class="QFrame" name="frame_15">
-                   <property name="styleSheet">
-                    <string notr="true">
-	border-radius: 15px;
-	background-color: rgb(212, 212, 255);
-
-</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_33">
-                    <item>
-                     <widget class="QFrame" name="frame_16">
-                      <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
-                      </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
-                      </property>
-                      <layout class="QHBoxLayout" name="horizontalLayout_34">
-                       <item>
-                        <layout class="QVBoxLayout" name="verticalLayout_53">
-                         <item>
-                          <layout class="QVBoxLayout" name="verticalLayout_54" stretch="0,1">
-                           <item>
-                            <widget class="QLabel" name="label_89">
-                             <property name="text">
-                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Сегодня&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QWidget" name="widget_5" native="true">
-                             <layout class="QHBoxLayout" name="horizontalLayout_35">
-                              <item>
-                               <layout class="QVBoxLayout" name="verticalLayout_55">
-                                <item>
-                                 <layout class="QHBoxLayout" name="horizontalLayout_36">
-                                  <item>
-                                   <widget class="QLabel" name="label_90">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_91">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_92">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_93">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                 </layout>
-                                </item>
-                                <item>
-                                 <layout class="QHBoxLayout" name="horizontalLayout_37">
-                                  <item>
-                                   <widget class="QLabel" name="label_94">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_95">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_96">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_97">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                 </layout>
-                                </item>
-                               </layout>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                          </layout>
-                         </item>
-                         <item>
-                          <layout class="QVBoxLayout" name="verticalLayout_56" stretch="0,1">
-                           <item>
-                            <widget class="QLabel" name="label_98">
-                             <property name="text">
-                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Вчера&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QWidget" name="widget_6" native="true">
-                             <layout class="QHBoxLayout" name="horizontalLayout_38">
-                              <item>
-                               <layout class="QVBoxLayout" name="verticalLayout_57">
-                                <item>
-                                 <layout class="QHBoxLayout" name="horizontalLayout_39">
-                                  <item>
-                                   <widget class="QLabel" name="label_99">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_100">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_101">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_102">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                 </layout>
-                                </item>
-                                <item>
-                                 <layout class="QHBoxLayout" name="horizontalLayout_40">
-                                  <item>
-                                   <widget class="QLabel" name="label_103">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_104">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_105">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                  <item>
-                                   <widget class="QLabel" name="label_106">
-                                    <property name="text">
-                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                    </property>
-                                   </widget>
-                                  </item>
-                                 </layout>
-                                </item>
-                               </layout>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                          </layout>
-                         </item>
-                        </layout>
-                       </item>
-                       <item>
-                        <widget class="QScrollBar" name="verticalScrollBar_2">
-                         <property name="styleSheet">
-                          <string notr="true"> QScrollBar:vertical {
-	border: none;
-    background: rgb(196, 196, 235);
-    width: 14px;
-    margin: 15px 0 15px 0;
-	border-radius: 0px;
- }
-QScrollBar::handle:vertical {	
-	background-color:rgb(146, 146, 175);
-	min-height: 30px;
-	
-}
-QScrollBar::handle:vertical:hover{	
-	background-color: rgb(146, 146, 175);
-}
-QScrollBar::handle:vertical:pressed {	
-	background-color:rgb(146, 146, 175);
-}
-QScrollBar::sub-line:vertical {
-	border: none;
-	background-color: rgb(146, 146, 175);
-	height: 15px;
-	border-top-left-radius: 7px;
-	border-top-right-radius: 7px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color:rgb(146, 146, 175);
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color:rgb(146, 146, 175);
-}
-QScrollBar::add-line:vertical {
-	border: none;
-	background-color:rgb(146, 146, 175);
-	height: 15px;
-	border-bottom-left-radius: 7px;
-	border-bottom-right-radius: 7px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color:rgb(146, 146, 175);
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(146, 146, 175);
-}
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}
-</string>
-                         </property>
-                         <property name="orientation">
-                          <enum>Qt::Vertical</enum>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </widget>
            <widget class="QWidget" name="resultPage">
             <layout class="QHBoxLayout" name="horizontalLayout_41">
              <item>
@@ -1170,28 +925,40 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                          </spacer>
                         </item>
                         <item>
-                         <widget class="QLabel" name="label_108">
+                         <widget class="QLabel" name="totalCalories">
+                          <property name="styleSheet">
+                           <string notr="true"> font-size:16pt</string>
+                          </property>
                           <property name="text">
                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Калории:&lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLabel" name="label_109">
+                         <widget class="QLabel" name="totalProtein">
+                          <property name="styleSheet">
+                           <string notr="true"> font-size:16pt</string>
+                          </property>
                           <property name="text">
                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Белки:&lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLabel" name="PPLabel_4">
+                         <widget class="QLabel" name="totalFat">
+                          <property name="styleSheet">
+                           <string notr="true"> font-size:16pt</string>
+                          </property>
                           <property name="text">
                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Жиры:&lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLabel" name="TrainingLabel_4">
+                         <widget class="QLabel" name="totalCarbo">
+                          <property name="styleSheet">
+                           <string notr="true"> font-size:16pt</string>
+                          </property>
                           <property name="text">
                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Углеводы:&lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
@@ -1228,9 +995,35 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                          </spacer>
                         </item>
                         <item>
-                         <widget class="QLabel" name="label_110">
+                         <widget class="QLabel" name="label_6">
                           <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Поздравляем!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Вы похудели на&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;килограмм&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Поздравляем!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_7">
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Вы похудели на&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="congrats">
+                          <property name="styleSheet">
+                           <string notr="true">font-size:36pt; 
+font-weight :600;
+text-align: center;</string>
+                          </property>
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_8">
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;килограмм&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
                          </widget>
                         </item>
@@ -1290,7 +1083,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="label_112">
+                  <widget class="QLabel" name="welcomeUser">
                    <property name="font">
                     <font>
                      <pointsize>12</pointsize>
@@ -1342,14 +1135,14 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                          </spacer>
                         </item>
                         <item>
-                         <widget class="QLabel" name="PPLabel_5">
+                         <widget class="QLabel" name="PPLabel">
                           <property name="text">
                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;приёмов пищи&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLabel" name="TrainingLabel_5">
+                         <widget class="QLabel" name="TrainingLabel">
                           <property name="text">
                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;тренировок&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
@@ -1389,7 +1182,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                              <property name="frameShadow">
                               <enum>QFrame::Raised</enum>
                              </property>
-                             <widget class="QFrame" name="CircularProgressBar_5">
+                             <widget class="QFrame" name="CircularProgressBar">
                               <property name="geometry">
                                <rect>
                                 <x>120</x>
@@ -1410,7 +1203,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                               <property name="frameShadow">
                                <enum>QFrame::Raised</enum>
                               </property>
-                              <widget class="QFrame" name="CircularProgressBar_6">
+                              <widget class="QFrame" name="CircularProgressBar1">
                                <property name="geometry">
                                 <rect>
                                  <x>20</x>
@@ -1577,7 +1370,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QProgressBar" name="progressBar_7">
+                      <widget class="QProgressBar" name="progressBar_Protein">
                        <property name="font">
                         <font>
                          <pointsize>15</pointsize>
@@ -1621,7 +1414,7 @@ QProgressBar::chunk{
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QProgressBar" name="progressBar_8">
+                      <widget class="QProgressBar" name="progressBar_Fat">
                        <property name="font">
                         <font>
                          <pointsize>15</pointsize>
@@ -1665,7 +1458,7 @@ QProgressBar::chunk{
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QProgressBar" name="progressBar_9">
+                      <widget class="QProgressBar" name="progressBar_Carbohydrates">
                        <property name="font">
                         <font>
                          <pointsize>15</pointsize>
