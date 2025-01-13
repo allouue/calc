@@ -36,7 +36,7 @@ class Main(QDialog):
         # ---КНОПКИ ВЫБОРА В ГЛАВНОМ МЕНЮ---#
         self.ui.mainButton.clicked.connect(self.showMain)
         self.ui.mealButton.clicked.connect(self.showMeal)
-        self.ui.hungerButton.clicked.connect(self.showHunger)
+        # self.ui.hungerButton.clicked.connect(self.showHunger)
         self.ui.resultButton.clicked.connect(self.showResult)
         self.ui.switchAccount.clicked.connect(self.switchAccount)
         self.ui.aboutButton.clicked.connect(self.showAbout)
@@ -244,13 +244,16 @@ class Main(QDialog):
             # Взять значение прогрессбара и конвертировать в float
             if self.value != 0:
                 self.progress = abs(1200 - self.value) / 1000.0
+                self.stop_1 = str(self.progress - 0.001)  # 0.001 для корректной работы
+                self.stop_2 = str(self.progress)
+                print(self.stop_1, self.stop_2)
             else:
-                self.progress = 0.5
+                self.stop_1 = str(0.001)
+                self.stop_2 = str(0)
+                self.progress = 0
             print("прогресс: " + str(self.progress))
             # Назначение чисел прогрессбару
-            self.stop_1 = str(self.progress - 0.001)  # 0.001 для корректной работы
-            self.stop_2 = str(self.progress)
-            print(self.stop_1, self.stop_2)
+
             newStylesheet = styleSheet.replace("{STOP_1}", self.stop_1).replace("{STOP_2}", self.stop_2) #заменяем
             self.ui.CircularProgressBar.setStyleSheet(newStylesheet) #применяем
         except Exception as e:
