@@ -60,40 +60,6 @@ border-radius: 15px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="hungerButton">
-           <property name="minimumSize">
-            <size>
-             <width>110</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>110</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
- 	 height: 30px;
- 	 box-sizing: border-box;
-	 background-color: rgb(212, 212, 255);
- 	 border-radius: 5px;
-	font-weight: bold;
-}</string>
-           </property>
-           <property name="text">
-            <string>Инт. голодание</string>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QPushButton" name="resultButton">
            <property name="styleSheet">
             <string notr="true">QPushButton{
@@ -688,175 +654,7 @@ background-color: rgb(212, 212, 255);
             </layout>
            </widget>
            <widget class="QWidget" name="hungerPage">
-            <layout class="QHBoxLayout" name="horizontalLayout_28">
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_44" stretch="0,1">
-               <property name="sizeConstraint">
-                <enum>QLayout::SetNoConstraint</enum>
-               </property>
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_45">
-                 <property name="sizeConstraint">
-                  <enum>QLayout::SetMinimumSize</enum>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_84">
-                   <property name="font">
-                    <font>
-                     <pointsize>23</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>Интервальное голодание</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_46" stretch="0">
-                 <item>
-                  <widget class="QFrame" name="frame_13">
-                   <property name="styleSheet">
-                    <string notr="true">QFrame {
-	border-radius: 15px;
-	background-color: rgb(212, 212, 255);
-}
-</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_29">
-                    <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_30">
-                      <item>
-                       <layout class="QVBoxLayout" name="verticalLayout_47">
-                        <item>
-                         <spacer name="verticalSpacer_13">
-                          <property name="orientation">
-                           <enum>Qt::Vertical</enum>
-                          </property>
-                          <property name="sizeType">
-                           <enum>QSizePolicy::Minimum</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>20</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_14">
-                          <property name="styleSheet">
-                           <string notr="true">QFrame {
-	border-radius: 15px;
-	background-color:white;
-}
-</string>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_31">
-                           <item>
-                            <layout class="QVBoxLayout" name="verticalLayout_48">
-                             <item>
-                              <widget class="QLabel" name="label_85">
-                               <property name="text">
-                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Следующий прием пищи через:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QLabel" name="label_86">
-                               <property name="text">
-                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:48pt; font-weight:600;&quot;&gt;0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QLabel" name="label_87">
-                               <property name="text">
-                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;часов&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <spacer name="verticalSpacer_14">
-                          <property name="orientation">
-                           <enum>Qt::Vertical</enum>
-                          </property>
-                          <property name="sizeType">
-                           <enum>QSizePolicy::Minimum</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>20</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                       </layout>
-                      </item>
-                      <item>
-                       <layout class="QVBoxLayout" name="verticalLayout_49" stretch="0,0">
-                        <item>
-                         <widget class="QPushButton" name="pushButton_2">
-                          <property name="styleSheet">
-                           <string notr="true">QPushButton{
- 	 height: 50px;
- 	 box-sizing: border-box;
-	 background-color: white;
- 	 border-radius: 5px;
-}</string>
-                          </property>
-                          <property name="text">
-                           <string>PushButton</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <spacer name="verticalSpacer_15">
-                          <property name="orientation">
-                           <enum>Qt::Vertical</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>20</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                       </layout>
-                      </item>
-                     </layout>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </item>
-            </layout>
+            <layout class="QHBoxLayout" name="horizontalLayout_28"/>
            </widget>
            <widget class="QWidget" name="resultPage">
             <layout class="QHBoxLayout" name="horizontalLayout_41">
@@ -1136,15 +934,11 @@ text-align: center;</string>
                         </item>
                         <item>
                          <widget class="QLabel" name="PPLabel">
+                          <property name="styleSheet">
+                           <string notr="true"> font-size:16pt</string>
+                          </property>
                           <property name="text">
                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;приёмов пищи&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLabel" name="TrainingLabel">
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;тренировок&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
                          </widget>
                         </item>
